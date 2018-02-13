@@ -17,7 +17,10 @@ public class StubReducer extends Reducer<Text, LongWritable, Text, LongWritable>
 	  for(LongWritable iw:values)
 	  {
 		  sum += iw.get();
+
+		  System.out.println(iw);
 	  }
+	  System.out.println(key);
 	  context.write(key, new LongWritable(sum));
   }
 }

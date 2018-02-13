@@ -40,7 +40,7 @@ public class StubDriver {
 		// conf.setNumMapTasks(5);
 
 		//To change number of reducers you can use the following:
-		//job.setNumReduceTasks(2);
+		job.setNumReduceTasks(2);
 
 		//TO change the InputFormat class, use the following settings.
 		//If you want exactly N number of lines on every inputsplit
@@ -63,11 +63,11 @@ public class StubDriver {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(LongWritable.class);
 
-		FileInputFormat.addInputPath(job, new Path("/data/mr/wordcount/input/big.txt"));
+		//FileInputFormat.addInputPath(job, new Path("/data/mr/wordcount/input/big.txt"));
 		FileOutputFormat.setOutputPath(job, new Path("javamrout_1"));
 
 		//To avoid hardcoding, you can take the values from command line args
-		// FileInputFormat.addInputPath(job, new Path(args[1]));
+		FileInputFormat.addInputPath(job, new Path(args[1]));
 		// FileOutputFormat.setOutputPath(job, new Path(args[2]));
 		boolean result = job.waitForCompletion(true);
 		System.exit(result ? 0 : 1);
